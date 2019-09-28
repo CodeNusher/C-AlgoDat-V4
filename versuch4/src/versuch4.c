@@ -52,6 +52,7 @@ int main(void){
 				{
 					printf("\nGewonnen!\n");
 					fflush(stdout);
+					break;
 				}
 				else
 				{
