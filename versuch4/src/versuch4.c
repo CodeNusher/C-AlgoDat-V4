@@ -29,18 +29,20 @@ int main(void){
 	{
 		schub = F * schubstufe;
 		a = (schub / FAEHRE) - FALLBESCH;
-
+		printf("\nSchub: %d -> akt. Hoehe: %.1f m, Geschwindigkeit: %.1f m/s: ", schubstufe, halt, valt);
+		fflush(stdout);
 
 		vneu = valt + a * DT;
 		hneu = halt + vneu * DT;
-		printf("\nSchub: %d -> akt. Hoehe: %.1f m, Geschwindigkeit: %.1f m/s: ", schubstufe, halt, valt);
-		fflush(stdout);
+		/*printf("\nSchub: %d -> akt. Hoehe: %.1f m, Geschwindigkeit: %.1f m/s: ", schubstufe, halt, valt);
+		fflush(stdout);*/
 		valt = vneu;
 		halt = hneu;
 		if(hneu > FLUCHTHOEHE)
 		{
 			printf("\nByeBye!\n");
 			fflush(stdout);
+			break;
 		}
 		else
 		{
@@ -61,7 +63,7 @@ int main(void){
 
 	}
 	/* für Test Consolen-Abbruch */
-	printf("\nABBRUCH? ");
+	printf("\nABBRUCH mit [j]: ");
 	fflush(stdout);
 	while((scanf("%s", &ch)) > 0){
 		if(ch == 'j')
